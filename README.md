@@ -53,6 +53,10 @@ A `.sha256` file accompanies every download; the `.sig` files and
 `latest.json` are the in-app updater's, and `THIRD_PARTY_LICENSES.md`
 lists the open-source components each build contains.
 
+The two "Source code" entries GitHub attaches to every release are
+archives of this repository's own files (this README and the license),
+not the app's source, which is not published.
+
 There is no Intel Mac build and no Windows build at present. If you’d like either one, file or vote on an issue.
 
 ### Updates
