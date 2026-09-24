@@ -1,0 +1,38 @@
+tokenome desktop — End User License Agreement
+
+PLACEHOLDER. The final terms have not been written. Until they are, the
+following describes the intended shape and is not a license grant.
+
+Intended terms, for review by counsel before this repository is public:
+
+1. Grant. Tokenome grants you a personal, non-exclusive, non-transferable
+   license to install and use the tokenome desktop app, free of charge,
+   on machines you control.
+
+2. Restrictions. You may not redistribute, sell, rent, or sublicense the
+   app; modify it or create derivative works; reverse engineer,
+   decompile, or disassemble it except where the law permits despite this
+   clause; or remove its notices.
+
+3. Third-party software. The app bundles open-source components under
+   their own licenses, listed in THIRD_PARTY_LICENSES.md with every
+   release. Those licenses govern those components.
+
+4. Your data. The app runs on your machine and sends no conversations or
+   code anywhere. Its only outbound connections are the download of the
+   embedding model on first run and the check for updates against this
+   repository.
+
+5. Team server. The tokenome team server is separate software, licensed
+   separately, and is not covered by this agreement.
+
+6. No warranty; limitation of liability. The app is provided "as is",
+   without warranty of any kind. To the extent the law allows, Tokenome
+   is not liable for any damages arising from its use.
+
+7. Termination. This license ends if you breach it; on termination you
+   stop using the app.
+
+8. Governing law. [To be determined.]
+
+Contact: contact@tokenome.ai
