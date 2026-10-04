@@ -1,15 +1,15 @@
 {
   "name": "tokenome",
-  "version": "0.5.3",
-  "description": "Give Claude memory of your past AI conversations: why decisions were made, what was tried, what a session said — via the tokenome daemon.",
+  "version": "0.5.4",
+  "description": "Code provenance for AI-assisted work: ask why a line looks the way it does, what was decided, what was tried and reversed, from your past AI conversations, through the tokenome daemon.",
   "author": {
     "name": "Naive Empiricist"
   },
   "homepage": "https://tokenome.ai",
   "repository": "https://github.com/tokenome/releases",
-  "license": "SEE LICENSE IN https://github.com/tokenome/releases/blob/main/LICENSE",
+  "license": "BUSL-1.1",
   "keywords": [
-    "memory",
+    "provenance",
     "search",
     "conversations",
     "decisions",

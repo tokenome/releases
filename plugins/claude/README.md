@@ -1,19 +1,20 @@
 # tokenome plugin for Claude Code
 
-Gives Claude memory of your past AI conversations — why decisions were
-made, what was tried, what a session said — through the tokenome daemon.
+Gives Claude the provenance of your code: which conversation produced a
+line, why a decision was made, what was tried. Served by the tokenome
+daemon on your machine.
 
 ## What it installs
 
-- **Skill `tokenome`** — teaches Claude when to reach for memory, which
+- **Skill `tokenome`**: teaches Claude when to reach for the record, which
   tool answers which question, how to chain them, how to attribute
   teammates' shared conversations, and what to do when the daemon is down.
   Loaded on demand; costs nothing when the prompt has no history angle.
-- **Hooks** — `UserPromptSubmit` nudges tokenome-first on retrospective
+- **Hooks**: `UserPromptSubmit` nudges tokenome-first on retrospective
   prompts; `SessionEnd` indexes the session transcript. Both are plain
   `curl` calls to the daemon, authenticated with `~/.tokenome/api.token`,
   so nothing here needs `tokenome` on your PATH.
-- **Slash commands** — `/tokenome:why <decision>` and
+- **Slash commands**: `/tokenome:why <decision>` and
   `/tokenome:search <query> [mine|team|all]`.
 
 The MCP server itself is served by the daemon at
@@ -48,9 +49,9 @@ install` finds the checkout's marketplace first).
 
 ## Requirements
 
-- A running tokenome daemon on `127.0.0.1:8741` — the tokenome desktop app
-  or `tokenome app`. Memory is unavailable (and the skill says so) when it
-  is not running.
+- A running tokenome daemon on `127.0.0.1:8741`: the tokenome desktop app
+  or `tokenome app`. The record is unavailable (and the skill says so) when
+  it is not running.
 - `curl` and a POSIX shell for the hooks (macOS and Linux; Windows support
   is tracked in DESIGN_8 §9).
 
@@ -64,7 +65,7 @@ install` finds the checkout's marketplace first).
 - `/plugin list` shows ✘ for a plugin that failed to load; read the reason
   with `claude plugin list --json`. `claude plugin validate plugins/claude`
   checks the manifests only and does not catch load-time errors (a hooks
-  file named in `manifest.hooks` is one — `hooks/hooks.json` is loaded by
+  file named in `manifest.hooks` is one; `hooks/hooks.json` is loaded by
   convention, so naming it registers it twice).
 - `claude plugin details tokenome@tokenome` shows the component inventory
   and the projected token cost of the skills (always-on vs. on-invoke).

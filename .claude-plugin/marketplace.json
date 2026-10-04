@@ -1,6 +1,6 @@
 {
   "name": "tokenome",
-  "description": "tokenome — memory for your AI conversations",
+  "description": "tokenome: code provenance for AI-assisted work",
   "owner": {
     "name": "tokenome"
   },
@@ -8,11 +8,11 @@
     {
       "name": "tokenome",
       "source": "./plugins/claude",
-      "description": "Give Claude memory of your past AI conversations: why decisions were made, what was tried, what a session said — via the tokenome daemon.",
-      "version": "0.5.3",
+      "description": "Code provenance for AI-assisted work: ask why a line looks the way it does, what was decided, what was tried and reversed, from your past AI conversations, through the tokenome daemon.",
+      "version": "0.5.4",
       "category": "productivity",
       "tags": [
-        "memory",
+        "provenance",
         "search",
         "mcp"
       ]
