@@ -1,0 +1,27 @@
+{
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "curl -sf --max-time 3 -X POST -H 'Content-Type: application/json' -H \"X-Tokenome-Token: $(cat \"$HOME/.tokenome/api.token\" 2>/dev/null)\" --data-binary @- http://127.0.0.1:8741/api/hooks/prompt 2>/dev/null || true",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "SessionEnd": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "curl -sf --max-time 280 -o /dev/null -X POST -H 'Content-Type: application/json' -H \"X-Tokenome-Token: $(cat \"$HOME/.tokenome/api.token\" 2>/dev/null)\" --data-binary @- 'http://127.0.0.1:8741/api/hooks/ingest?format=claude-code' 2>/dev/null || true",
+            "timeout": 300,
+            "async": true
+          }
+        ]
+      }
+    ]
+  }
+}
