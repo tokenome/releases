@@ -1,0 +1,12 @@
+# TLS termination for the tokenome team server.
+#
+# With a public DNS name, Caddy provisions and renews Let's Encrypt
+# certificates automatically — no further setup.
+#
+# For an internal-only hostname (no public DNS), uncomment `tls internal`
+# to use Caddy's self-managed CA, and distribute its root cert to clients.
+
+{$TOKENOME_DOMAIN} {
+	# tls internal
+	reverse_proxy server:8600
+}

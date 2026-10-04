@@ -1,0 +1,70 @@
+# tokenome team-server deployment: Typesense + server + TLS reverse proxy.
+#
+#   cp .env.example .env       # then edit: domain + a strong Typesense key
+#   docker compose up -d
+#   docker compose exec server tokenome-server init --admin-name <you>
+#
+# Only Caddy (80/443) is exposed to the network; Typesense and the server
+# speak over the internal compose network. See README.md for the runbook.
+
+name: tokenome
+
+services:
+  typesense:
+    image: typesense/typesense:30.2  # matches the client's pinned version
+    restart: unless-stopped
+    command:
+      - "--data-dir=/data"
+      - "--api-key=${TYPESENSE_API_KEY:?set TYPESENSE_API_KEY in .env}"
+      - "--api-port=8108"
+    volumes:
+      - typesense-data:/data
+    healthcheck:
+      test: ["CMD-SHELL", "curl -sf http://localhost:8108/health || exit 1"]
+      interval: 10s
+      timeout: 3s
+      retries: 6
+      start_period: 10s
+
+  server:
+    # Published with every release (the Server image workflow); pin the
+    # version in .env. From a checkout, build the same image yourself
+    # (from the repository root):
+    #   docker build -f deploy/Dockerfile -t ghcr.io/tokenome/tokenome-server:dev .
+    #   TOKENOME_SERVER_VERSION=dev docker compose up -d
+    image: ghcr.io/tokenome/tokenome-server:${TOKENOME_SERVER_VERSION:-0.5.3}
+    restart: unless-stopped
+    environment:
+      TOKENOME_TYPESENSE_HOST: typesense
+      TOKENOME_TYPESENSE_PORT: "8108"
+      TOKENOME_TYPESENSE_API_KEY: ${TYPESENSE_API_KEY:?set TYPESENSE_API_KEY in .env}
+      TOKENOME_SERVER_LATEST_CLIENT_VERSION: ${LATEST_CLIENT_VERSION:-}
+      TOKENOME_SERVER_MIN_CLIENT_VERSION: ${MIN_CLIENT_VERSION:-}
+      TOKENOME_SERVER_RETENTION_DAYS: ${RETENTION_DAYS:-0}
+      TOKENOME_SERVER_RETENTION_PROJECTS: ${RETENTION_PROJECTS:-}
+    volumes:
+      - server-data:/data
+    depends_on:
+      typesense:
+        condition: service_healthy
+
+  caddy:
+    image: caddy:2
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      TOKENOME_DOMAIN: ${TOKENOME_DOMAIN:?set TOKENOME_DOMAIN in .env}
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy-data:/data
+      - caddy-config:/config
+    depends_on:
+      - server
+
+volumes:
+  typesense-data:
+  server-data:
+  caddy-data:
+  caddy-config:
