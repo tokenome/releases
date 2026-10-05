@@ -1,38 +1,112 @@
-tokenome desktop — End User License Agreement
+Tokenome Software Licence
+Version 1.0, 5 October 2026
 
-PLACEHOLDER. The final terms have not been written. Until they are, the
-following describes the intended shape and is not a license grant.
+This repository distributes several things under different terms. The section
+that covers what you are using is the one that applies.
 
-Intended terms, for review by counsel before this repository is public:
+1. THE TOKENOME APPLICATION
 
-1. Grant. Tokenome grants you a personal, non-exclusive, non-transferable
-   license to install and use the tokenome desktop app, free of charge,
-   on machines you control.
+   The macOS disk image, the Linux AppImage and deb packages published here,
+   and the Claude Code plugin distributed with them, are licensed, not sold.
 
-2. Restrictions. You may not redistribute, sell, rent, or sublicense the
-   app; modify it or create derivative works; reverse engineer,
-   decompile, or disassemble it except where the law permits despite this
-   clause; or remove its notices.
+   Tokenome grants you a worldwide, royalty-free, non-exclusive,
+   non-transferable licence to install and use the application, for personal
+   or commercial purposes, on any number of machines you control, at no
+   charge.
 
-3. Third-party software. The app bundles open-source components under
-   their own licenses, listed in THIRD_PARTY_LICENSES.md with every
-   release. Those licenses govern those components.
+   You may not redistribute or resell the application or any part of it; rent,
+   lease or host it as a service for other people; remove or alter any notice
+   in it; or use it to build a product whose substantial purpose is capturing,
+   indexing or searching conversations with AI systems, or linking those
+   conversations to code.
 
-4. Your data. The app runs on your machine and sends no conversations or
-   code anywhere. Its only outbound connections are the download of the
-   embedding model on first run and the check for updates against this
+   You may decompile or reverse engineer the application only so far as that
+   restriction is unenforceable under the law that applies to you.
+
+   This licence covers the application as distributed here. It grants no
+   rights in the Tokenome source code, which is not published in this
    repository.
 
-5. Team server. The tokenome team server is separate software, licensed
-   separately, and is not covered by this agreement.
+2. THE PYTHON PACKAGE
 
-6. No warranty; limitation of liability. The app is provided "as is",
-   without warranty of any kind. To the extent the law allows, Tokenome
-   is not liable for any damages arising from its use.
+   The tokenome-ai package on PyPI, and the tokenome-core library it depends
+   on, are licensed under the Business Source License 1.1, with an Additional
+   Use Grant permitting any production use other than a competing product, and
+   the Apache License 2.0 as the Change License four years after each version
+   is first published. The full text ships with those packages and governs
+   them. Nothing in this file narrows it.
 
-7. Termination. This license ends if you breach it; on termination you
-   stop using the app.
+3. THE TEAM SERVER
 
-8. Governing law. [To be determined.]
+   The Tokenome team server, including the container image published as
+   ghcr.io/tokenome/tokenome-server, and the systems that bill for it, are
+   proprietary. Running the team server for your own organisation is permitted
+   while it is in free beta. Any other use, including offering it to other
+   people, needs a separate written agreement.
 
-Contact: contact@tokenome.ai
+   Team is free while it is in beta. Every team on the beta will be told at
+   least 30 days before any charging starts.
+
+4. THIRD-PARTY SOFTWARE
+
+   The application bundles open-source components under their own licences,
+   listed in THIRD_PARTY_LICENSES.md with every release. Those licences govern
+   those components.
+
+5. YOUR DATA
+
+   The application runs on your machine and sends no conversations and no code
+   anywhere. Its only outbound connection is the check for updates against this
+   repository; the embedding model and the search engine are inside the
+   download, so nothing is fetched on first run.
+
+   If you join a team server, what leaves a laptop is what that person opts in
+   to share, with secrets redacted before it goes, and it goes to a server your
+   organisation runs. Tokenome does not host a team server for customers and
+   receives none of that data. We never train on your data.
+
+   No licensing condition causes data to be deleted. If a subscription lapses,
+   search, existing shares, updates to shared projects and deletes all keep
+   working; only adding people and sharing a project for the first time pause.
+
+6. TRADEMARKS
+
+   This licence grants no right to use the Tokenome name or logo, except to
+   state accurately that your work uses Tokenome.
+
+7. NO WARRANTY, AND LIABILITY
+
+   The software is provided "as is", without warranty of any kind, express or
+   implied, including the implied warranties of merchantability, fitness for a
+   particular purpose and non-infringement. To the maximum extent the law
+   allows, Tokenome is not liable for any claim, damages or other liability
+   arising from the software or its use, and our total liability is limited to
+   what you paid us in the twelve months before the claim. Some jurisdictions
+   do not allow these limits, in which case they apply only so far as the law
+   permits.
+
+8. TERM
+
+   This licence applies for as long as you use the software. It ends if you
+   breach it; you may end it at any time by deleting your copies. Sections 6,
+   7 and 9 survive.
+
+9. GOVERNING LAW
+
+   This licence is governed by the laws of the Commonwealth of Massachusetts,
+   United States, without regard to its conflict of laws rules, and the courts
+   of Massachusetts have exclusive jurisdiction over any dispute arising from
+   it.
+
+10. CHANGES
+
+   We may change these terms for future versions of the software. The version
+   you installed keeps the terms it shipped under.
+
+11. CONTACT
+
+   Licensing questions, including a licence for anything this file does not
+   permit: hello@tokenome.ai
+
+The same terms, in a form built for reading, are published at
+https://tokenome.ai/terms
