@@ -6,7 +6,7 @@ body:
     attributes:
       value: |
         Thanks for the report. The fields below are what we need to reproduce it; the daemon log in particular saves a round trip.
-        **Please do not paste conversation content.** The log carries no conversation text, but anything you paste from the app might.
+        **Please do not paste conversation content.** Skim the log before pasting: current versions keep conversation text out of it, but versions before 0.5.5 logged the text of searches.
   - type: dropdown
     id: component
     attributes:
@@ -68,7 +68,7 @@ body:
       description: |
         macOS: `~/Library/Application Support/com.tokenome.desktop/daemon.log`
         Linux: `~/.local/share/com.tokenome.desktop/daemon.log`
-        The log never contains conversation text or your API token.
+        The log never contains your API token. Versions before 0.5.5 logged the text of searches, so skim it and remove any line you would not want public.
       render: text
   - type: checkboxes
     id: privacy
