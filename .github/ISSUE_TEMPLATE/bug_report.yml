@@ -1,0 +1,79 @@
+name: Bug report
+description: Something in tokenome does not work the way it should.
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for the report. The fields below are what we need to reproduce it; the daemon log in particular saves a round trip.
+        **Please do not paste conversation content.** The log carries no conversation text, but anything you paste from the app might.
+  - type: dropdown
+    id: component
+    attributes:
+      label: Where is the problem?
+      options:
+        - Desktop app on macOS
+        - Desktop app on Linux
+        - Claude Code plugin or MCP tools
+        - Command-line tool (tokenome ...)
+        - Team server
+        - Website or documentation
+        - Not sure
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: tokenome version
+      description: Settings → Updates in the app, or `tokenome --version` in a terminal.
+      placeholder: "0.5.4"
+    validations:
+      required: true
+  - type: input
+    id: os
+    attributes:
+      label: Operating system and version
+      placeholder: "macOS 15.1 on Apple Silicon, or Ubuntu 24.04 x86_64"
+    validations:
+      required: true
+  - type: dropdown
+    id: install
+    attributes:
+      label: How did you install it?
+      options:
+        - DMG from the Releases page
+        - AppImage
+        - .deb package
+        - The in-app updater
+        - pip / uv (Python package)
+        - Other (say which below)
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: What you did, what you saw, and what you expected instead.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Open the app
+        2. ...
+  - type: textarea
+    id: log
+    attributes:
+      label: Daemon log (last 50 lines or so)
+      description: |
+        macOS: `~/Library/Application Support/com.tokenome.desktop/daemon.log`
+        Linux: `~/.local/share/com.tokenome.desktop/daemon.log`
+        The log never contains conversation text or your API token.
+      render: text
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Privacy check
+      options:
+        - label: I have not pasted conversation content, secrets, or anything I would not want public.
+          required: true

@@ -1,0 +1,19 @@
+name: Question
+description: How do I ...? Is it supposed to ...?
+labels: ["question"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        The docs at https://tokenome.ai/docs cover install, first run, finding things, code provenance, the journal, agents and privacy. If they do not answer it, ask here.
+  - type: textarea
+    id: question
+    attributes:
+      label: Your question
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: tokenome version, if relevant
+      placeholder: "0.5.4"

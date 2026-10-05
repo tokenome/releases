@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Troubleshooting guide
+    url: https://tokenome.ai/docs/troubleshooting
+    about: Common install, update and daemon problems, with fixes.
+  - name: Email the team
+    url: mailto:hello@tokenome.ai
+    about: Anything you would rather not post publicly. Reaches the three of us directly.
+  - name: Report a security vulnerability
+    url: https://github.com/tokenome/releases/security/policy
+    about: Please do not open a public issue for a vulnerability. The security policy explains how to reach us privately.
