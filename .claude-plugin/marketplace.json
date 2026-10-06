@@ -9,7 +9,7 @@
       "name": "tokenome",
       "source": "./plugins/claude",
       "description": "Code provenance for AI-assisted work: ask why a line looks the way it does, what was decided, what was tried and reversed, from your past AI conversations, through the tokenome daemon.",
-      "version": "0.5.4",
+      "version": "0.5.5",
       "category": "productivity",
       "tags": [
         "provenance",
