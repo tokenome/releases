@@ -1,0 +1,28 @@
+name: Feature request
+description: Something tokenome should do, or do differently.
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What are you trying to do?
+      description: The situation first; the feature you have in mind second. Often there is a shorter path.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: What would you like tokenome to do?
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Desktop app
+        - Search and code provenance
+        - Journal and FAQ
+        - Claude Code plugin or MCP tools
+        - Command-line tool
+        - Team server
+        - Windows or Intel Mac build
+        - Other
