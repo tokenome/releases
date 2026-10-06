@@ -23,8 +23,8 @@ reproduce. Do not include conversation content from your index.
 We will acknowledge your report within a few business days, keep you
 informed as we work on it, and credit you in the release notes if you
 would like. Please give us reasonable time to ship a fix before
-disclosing publicly; the desktop app updates itself, so most users are
-on a fix within days of its release.
+disclosing publicly; the desktop app offers each update and installs it
+on confirmation, so most users are on a fix within days of its release.
 
 ## Scope
 
@@ -39,7 +39,9 @@ only on your instruction.
 Everything is local by default: the index, the embedding model and the
 search engine run on your machine, and nothing leaves it unless you join
 a team and opt a project in. The local API is bound to the loopback,
-refuses requests with a foreign Host header, and is guarded by a per-boot
-token; secrets and personal data are scrubbed before anything is shared
-with a team server. The daemon log never contains conversation text or
-the API token.
+refuses requests with a foreign Host header, and is guarded by a token
+that is minted on your machine and never leaves it; secrets and personal
+data are scrubbed before anything is shared with a team server. The
+daemon log never contains the API token, and from 0.5.5 on it never
+contains conversation text or the text of searches either (earlier
+versions logged search text, so skim the log before pasting it).
