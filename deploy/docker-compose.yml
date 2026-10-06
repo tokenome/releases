@@ -32,7 +32,7 @@ services:
     # (from the repository root):
     #   docker build -f deploy/Dockerfile -t ghcr.io/tokenome/tokenome-server:dev .
     #   TOKENOME_SERVER_VERSION=dev docker compose up -d
-    image: ghcr.io/tokenome/tokenome-server:${TOKENOME_SERVER_VERSION:-0.5.4}
+    image: ghcr.io/tokenome/tokenome-server:${TOKENOME_SERVER_VERSION:-0.5.5}
     restart: unless-stopped
     environment:
       TOKENOME_TYPESENSE_HOST: typesense
