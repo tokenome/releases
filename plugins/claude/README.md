@@ -78,4 +78,7 @@ tokenome claude uninstall      # removes the MCP registration
 /plugin uninstall tokenome@tokenome
 ```
 
+Privacy: [tokenome.ai/docs/privacy](https://tokenome.ai/docs/privacy), what
+stays on your machine and the exceptions, stated plainly.
+
 Design: `docs/design/DESIGN_8_CLAUDE_SKILL.md`.

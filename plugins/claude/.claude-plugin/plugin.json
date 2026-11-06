@@ -14,5 +14,6 @@
     "conversations",
     "decisions",
     "mcp"
-  ]
+  ],
+  "privacyPolicyUrl": "https://tokenome.ai/docs/privacy"
 }
