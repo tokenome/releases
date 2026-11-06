@@ -11,9 +11,10 @@ daemon on your machine.
   teammates' shared conversations, and what to do when the daemon is down.
   Loaded on demand; costs nothing when the prompt has no history angle.
 - **Hooks**: `UserPromptSubmit` nudges tokenome-first on retrospective
-  prompts; `SessionEnd` indexes the session transcript. Both are plain
-  `curl` calls to the daemon, authenticated with `~/.tokenome/api.token`,
-  so nothing here needs `tokenome` on your PATH.
+  prompts; `SessionEnd` indexes the session transcript. Both are small
+  shell scripts in `scripts/` that post to the daemon on the loopback,
+  authenticated with `~/.tokenome/api.token`, so nothing here needs
+  `tokenome` on your PATH and nothing is fetched from the network.
 - **Slash commands**: `/tokenome:why <decision>` and
   `/tokenome:search <query> [mine|team|all]`.
 
@@ -25,7 +26,7 @@ registration carries your machine's token.
 
 With the tokenome app running (or `uv run tokenome app`):
 
-```sh
+```
 tokenome claude install
 ```
 
@@ -52,8 +53,8 @@ install` finds the checkout's marketplace first).
 - A running tokenome daemon on `127.0.0.1:8741`: the tokenome desktop app
   or `tokenome app`. The record is unavailable (and the skill says so) when
   it is not running.
-- `curl` and a POSIX shell for the hooks (macOS and Linux; Windows support
-  is tracked in DESIGN_8 §9).
+- A POSIX shell with an HTTP client on the PATH for the hook scripts
+  (macOS and Linux; Windows support is tracked in DESIGN_8 §9).
 
 ## Developing the plugin
 
@@ -72,7 +73,7 @@ install` finds the checkout's marketplace first).
 
 ## Uninstall
 
-```sh
+```
 tokenome claude uninstall      # removes the MCP registration
 /plugin uninstall tokenome@tokenome
 ```
